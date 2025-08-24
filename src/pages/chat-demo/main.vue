@@ -359,7 +359,7 @@ export default {
   overflow: hidden;
 }
 
-// 现代办公顶部导航栏
+/* 现代办公顶部导航栏 */
 .office-header {
   background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
   padding: 16px 32px;
@@ -490,7 +490,7 @@ export default {
   }
 }
 
-// 主工作区域
+/* 主工作区域 */
 .office-main {
   display: grid;
   grid-template-columns: 320px 1fr 320px;
@@ -500,7 +500,7 @@ export default {
   background: #e2e8f0;
 }
 
-// 左侧功能面板
+/* 左侧功能面板 */
 .feature-sidebar {
   background: #ffffff;
   padding: 24px;
@@ -622,13 +622,12 @@ export default {
   }
 }
 
-// 中央智能对话工作区
+/* 中央智能对话工作区 */
 .chat-workspace {
   display: flex;
   flex-direction: column;
   background: #ffffff;
   position: relative;
-}
   
   .workspace-toolbar {
     display: flex;
@@ -780,7 +779,7 @@ export default {
   }
 }
 
-// 右侧效率监控面板
+/* 右侧效率监控面板 */
 .efficiency-dashboard {
   background: #ffffff;
   border-left: 1px solid #e2e8f0;
@@ -1005,7 +1004,7 @@ export default {
   }
 }
 
-// 底部信息栏
+/* 底部信息栏 */
 .office-footer {
   background: #f8fafc;
   padding: 12px 32px;
@@ -1072,7 +1071,7 @@ export default {
   }
 }
 
-// 动画效果
+/* 动画效果 */
 @keyframes slideInUp {
   from {
     opacity: 0;
@@ -1108,7 +1107,7 @@ export default {
   }
 }
 
-// 全局动画
+/* 全局动画 */
 .office-efficiency-app {
   animation: fadeIn 0.5s ease-out;
   
@@ -1127,7 +1126,7 @@ export default {
   }
 }
 
-// 响应式设计
+/* 响应式设计 */
 @media (max-width: 1400px) {
   .office-main {
     grid-template-columns: 280px 1fr 280px;

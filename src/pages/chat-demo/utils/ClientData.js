@@ -51,7 +51,7 @@ class ClientData {
             const botInfo = {
                 'code': 0,
                 'data': {
-                    'name': '超级辩论大师',
+                    'name': 'AI办工提效大师',
                     'avatar': 'https://qbot-1251316161.cos.ap-nanjing.myqcloud.com/avatar.png',
                     'is_available': true,
                     'bot_biz_id': '1664519736704069632'
