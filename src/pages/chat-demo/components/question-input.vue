@@ -8,7 +8,7 @@
         <div :class="['question-input-inner', { 'inputFocus': inputFocus, 'disabled': isGeneratingReply || isThinking }]">
             <v-textarea @focus="updateFocus(true)" @blur="updateFocus(false)"
                         :readonly="disableInput[currentVisitorId] || isGeneratingReply || isThinking" v-model="question"
-                        @keydown.native="onPressEnter($event)" :placeholder="disableInput[currentVisitorId] ? '战斗已结束' : '输入您的辞论观点，发起挑战...'"
+                        @keydown.native="onPressEnter($event)" :placeholder="disableInput[currentVisitorId] ? '会话已结束' : '请输入您的办公需求，AI助手为您服务...'"
                         :autofocus="true" :autoheight="true" class="question-input-inner__textarea"></v-textarea>
             <div class="question-input-inner__toolbar">
                 <div :class="['send-icon', { 'disabled': isSendIconDisabled || disableInput[currentVisitorId] }]">
@@ -163,22 +163,22 @@ export default {
   .stop-button {
     display: flex;
     justify-content: center;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 
     button {
-      background: linear-gradient(135deg, #ff0000 0%, #8b0000 100%) !important;
+      background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%) !important;
       color: white !important;
-      border: 2px solid #ff4500 !important;
-      border-radius: 15px !important;
-      padding: 8px 15px !important;
-      font-weight: bold !important;
-      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5) !important;
-      box-shadow: 0 4px 15px rgba(255, 0, 0, 0.4) !important;
-      transition: all 0.3s ease !important;
+      border: 1px solid #ef4444 !important;
+      border-radius: 8px !important;
+      padding: 8px 16px !important;
+      font-weight: 500 !important;
+      font-size: 13px !important;
+      box-shadow: 0 2px 4px rgba(239, 68, 68, 0.3) !important;
+      transition: all 0.2s ease !important;
       
       &:hover {
-        transform: translateY(-2px) !important;
-        box-shadow: 0 6px 20px rgba(255, 0, 0, 0.6) !important;
+        transform: translateY(-1px) !important;
+        box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4) !important;
       }
     }
   }
@@ -198,34 +198,23 @@ export default {
   &-inner {
     display: flex;
     align-items: center;
-    background: linear-gradient(135deg, rgba(20, 20, 20, 0.95) 0%, rgba(40, 40, 40, 0.95) 100%);
-    border: 2px solid #ff4500;
-    border-radius: 20px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
     padding: 16px 20px;
     max-width: 100%;
     width: 100%;
     box-shadow: 
-      0 8px 32px rgba(255, 69, 0, 0.3),
-      0 4px 16px rgba(255, 0, 0, 0.15),
-      inset 0 1px 0 rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(15px);
-    transition: all 0.3s ease;
+      0 4px 6px rgba(0, 0, 0, 0.05),
+      0 2px 4px rgba(0, 0, 0, 0.03);
+    transition: all 0.2s ease;
     position: relative;
     
-    &::before {
-      content: '';
-      position: absolute;
-      top: -2px;
-      left: -2px;
-      right: -2px;
-      bottom: -2px;
-      background: linear-gradient(135deg, #ff4500, #ff6500, #ff0000, #ff4500);
-      border-radius: 22px;
-      z-index: -1;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-      background-size: 200% 200%;
-      animation: battleGlow 3s ease infinite;
+    &:hover {
+      border-color: #cbd5e1;
+      box-shadow: 
+        0 6px 12px rgba(0, 0, 0, 0.08),
+        0 4px 6px rgba(0, 0, 0, 0.05);
     }
 
     .v-textarea--default {
@@ -233,16 +222,11 @@ export default {
     }
 
     &.inputFocus {
-      transform: translateY(-3px);
+      border-color: #3b82f6;
       box-shadow: 
-        0 12px 40px rgba(255, 69, 0, 0.4),
-        0 6px 20px rgba(255, 0, 0, 0.2),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2);
-      border-color: #ff6500;
-        
-      &::before {
-        opacity: 1;
-      }
+        0 0 0 3px rgba(59, 130, 246, 0.1),
+        0 6px 12px rgba(59, 130, 246, 0.15),
+        0 4px 6px rgba(0, 0, 0, 0.05);
     }
 
     &.disabled {
@@ -263,19 +247,19 @@ export default {
 
       .v-textarea__txt {
         font-size: 14px;
-        font-family: 'Orbitron', 'Microsoft YaHei', -apple-system, BlinkMacSystemFont, sans-serif !important;
+        font-family: 'Inter', 'Microsoft YaHei', -apple-system, BlinkMacSystemFont, sans-serif !important;
         line-height: 1.5;
         padding: 0;
         resize: none;
-        color: #ffffff !important;
+        color: #1e293b !important;
         background: transparent !important;
-        font-weight: 500;
+        font-weight: 400;
       }
       
       .v-textarea__placeholder {
-        color: #ff9070 !important;
+        color: #94a3b8 !important;
         font-weight: 400;
-        opacity: 0.8;
+        opacity: 1;
       }
     }
 
@@ -283,20 +267,20 @@ export default {
       border: none;
       
       .v-textarea__txt {
-        color: #ffffff !important;
+        color: #1e293b !important;
       }
     }
     
     // 确保所有状态下文本颜色正确
     .v-textarea {
-      color: #ffffff !important;
+      color: #1e293b !important;
       
       textarea {
-        color: #ffffff !important;
+        color: #1e293b !important;
         background: transparent !important;
         
         &::placeholder {
-          color: #ff9070 !important;
+          color: #94a3b8 !important;
         }
       }
     }
@@ -312,29 +296,29 @@ export default {
         align-items: center;
         width: 40px;
         height: 40px;
-        background: linear-gradient(135deg, #ff4500 0%, #ff6500 100%);
-        border-radius: 12px;
+        background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+        border-radius: 8px;
         cursor: pointer;
-        transition: all 0.3s ease;
-        box-shadow: 0 4px 12px rgba(255, 69, 0, 0.4);
+        transition: all 0.2s ease;
+        box-shadow: 0 2px 4px rgba(59, 130, 246, 0.3);
 
         .v-icon {
           color: white;
         }
 
         &:hover {
-          background: linear-gradient(135deg, #ff6500 0%, #ff8500 100%);
-          transform: scale(1.05) translateY(-2px);
-          box-shadow: 0 8px 20px rgba(255, 69, 0, 0.6);
+          background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
+          transform: translateY(-1px);
+          box-shadow: 0 4px 8px rgba(59, 130, 246, 0.4);
         }
 
         &.disabled {
-          background: #333;
+          background: #e2e8f0;
           cursor: not-allowed;
           box-shadow: none;
 
           .v-icon {
-            color: #666;
+            color: #94a3b8;
           }
         }
 
@@ -343,15 +327,15 @@ export default {
   }
 }
 
-@keyframes battleGlow {
+@keyframes focusGlow {
   0% {
-    background-position: 0% 50%;
+    box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.4);
   }
-  50% {
-    background-position: 100% 50%;
+  70% {
+    box-shadow: 0 0 0 6px rgba(59, 130, 246, 0);
   }
   100% {
-    background-position: 0% 50%;
+    box-shadow: 0 0 0 0 rgba(59, 130, 246, 0);
   }
 }
 

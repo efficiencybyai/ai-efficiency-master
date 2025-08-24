@@ -47,7 +47,7 @@
                             :detailVisible="thought.detailVisible"
                         />
                     </div>
-                    <div class="loading" v-if="item.loading_message">AI正在分析战情，准备反击...</div>
+                    <div class="loading" v-if="item.loading_message">AI正在分析您的需求，准备方案...</div>
                     <!-- 回复主体 -->
                     <MsgContent :showTags="true"
                                 :recordId="item.record_id"
@@ -285,9 +285,9 @@ export default {
 
   .loading {
     margin: 1em 0;
-    width: 200px;
-    color: #ff6500;
-    font-weight: 600;
+    width: 220px;
+    color: #3b82f6;
+    font-weight: 500;
     font-size: 13px;
 
     &:after {
@@ -328,7 +328,7 @@ export default {
       font-size: 12px;
       line-height: 16px;
       text-align: center;
-      color: var(--color-text-caption);
+      color: #64748b;
       margin: 16px 0;
     }
 
